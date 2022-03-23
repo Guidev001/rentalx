@@ -5,6 +5,9 @@
   "repository": "https://github.com/Guidev001/rentalx.git",
   "author": "Guilherme Gomes David <guidev001@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+  },
   "dependencies": {
     "express": "^4.17.3"
   },
@@ -20,6 +23,7 @@
     "eslint-plugin-import-helpers": "^1.2.1",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.0",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.6.2"
   }
 }
