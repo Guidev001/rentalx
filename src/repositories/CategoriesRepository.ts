@@ -1,12 +1,14 @@
+// Uma classe/camada que tem como responsabilidade fazer toda a manipulação de dados da nossa aplicação
+// Fazer acesso ao BD, cadastro, selects e entre outros
+
 import { Category } from "../model/Category";
+import {
+  ICategoriesRepository,
+  ICreateCategoryDTO,
+} from "./ICategoriesRepository";
 
-interface ICreateCategoryDTO {
-  name: string;
-  description: string;
-}
-
-class CategoriesRepository {
-  private categories: Category[];
+class CategoriesRepository implements ICategoriesRepository {
+  private categories: Category[]; // Como categories está dentro da nossa classe, não podemos declarar como uma const e sim seu tipo de acesso
 
   constructor() {
     this.categories = [];
@@ -22,6 +24,15 @@ class CategoriesRepository {
     });
 
     this.categories.push(category);
+  }
+
+  list(): Category[] {
+    return this.categories;
+  }
+
+  findByName(name: string): Category {
+    const category = this.categories.find((category) => category.name === name);
+    return category;
   }
 }
 

@@ -1,3 +1,4 @@
+// Cria o modelo da nossa Category
 import { v4 as uuidV4 } from "uuid";
 
 class Category {
