@@ -24,4 +24,12 @@ categoriesRoutes.get("/", (request, response) => {
   return response.json(all);
 });
 
+categoriesRoutes.get("/:name", (request, response) => {
+  const { name } = request.params
+
+  const findName = categoriesRepository.findByName(name);
+  
+  return response.json(findName);
+});
+
 export { categoriesRoutes };
